@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CoinGekkoApp</string>
+
+    <string-array name="Tradables">
+        <item>Top 3 (Capitalization)</item>
+        <item>Top 1 (Price)</item>
+        <item>Least 3 (Capitalization)</item>
+        <item>Least 1 (Price)</item>
+    </string-array>
+</resources>
