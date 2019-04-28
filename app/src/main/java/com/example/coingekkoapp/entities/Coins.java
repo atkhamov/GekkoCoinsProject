@@ -1,10 +1,31 @@
 package com.example.coingekkoapp.entities;
 
-public class Coins {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+
+/**INTERFACES can not be extended, they can be IMPLEMENTED*/
+public class Coins implements Serializable {
+    @Expose
+    @SerializedName("symbol")
     private String symbol;
+
+    @Expose
+    @SerializedName("name")
     private String name;
-    private int current_price;
+
+    @Expose
+    @SerializedName("current_price")
+    private double current_price;
+
+    @Expose
+    @SerializedName("market_cap")
     private long market_cap;
+
+    @Expose
+    @SerializedName("market_cap_rank")
     private int market_cap_rank;
 
     public Coins(String symbol, String name, int current_price, long market_cap, int market_cap_rank) {
@@ -15,7 +36,7 @@ public class Coins {
         this.market_cap_rank = market_cap_rank;
     }
 
-    public String getBtc() {
+    public String getSymbol() {
         return symbol;
     }
 
@@ -23,7 +44,7 @@ public class Coins {
         return name;
     }
 
-    public int getCurrent_price() {
+    public double getCurrent_price() {
         return current_price;
     }
 

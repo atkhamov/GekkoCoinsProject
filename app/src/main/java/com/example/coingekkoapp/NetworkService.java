@@ -4,19 +4,21 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+/**This is the SINGLETON pattern class*/
 public class NetworkService {
-    private static NetworkService mService = null;
-    private Retrofit mRetrofit;
+    private static NetworkService nService = null;
+    private Retrofit nRetrofit;
 
     public static NetworkService getInstance(){
-        if(mService == null){
-            mService = new NetworkService();
-        }return mService;
+        if(nService == null){
+            nService = new NetworkService();
+        }return nService;
     }
 
     private NetworkService(){
         OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
-        mRetrofit = new Retrofit.Builder()
+        nRetrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
@@ -24,6 +26,6 @@ public class NetworkService {
     }
 
     public ApiGekko getApiGekko(){
-        return mRetrofit.create(ApiGekko.class);
+        return nRetrofit.create(ApiGekko.class);
     }
 }
